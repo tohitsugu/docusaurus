@@ -8,13 +8,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Developer Documentation',
   tagline: '1Kosmos BlockID Developer Portal',
-  url: 'https://1k-dev.1kosmos.net/',
-  baseUrl: '/devportal/',
+  url: 'https://cranky-wing-7e4cda.netlify.app',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: '1kosmos', // Usually your GitHub org/user name.
-  projectName: 'devx_frontend', // Usually your repo name.
+  projectName: 'docusaurus', // Usually your repo name.
 
   presets: [
     [
