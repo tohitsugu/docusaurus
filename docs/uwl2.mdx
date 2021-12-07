@@ -1,5 +1,6 @@
 ---
-sidebar_position: 7
+sidebar_position: 1
+slug: /uwl2
 ---
 
 import Tabs from '@theme/Tabs';
@@ -15,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 **UWL** augments or replaces the traditional username, password & MFA-based login with a passwordless experience by leveraging user biometrics with the BlockID mobile app. BlockID supports all true biometric options, including TouchID, FaceID, and LiveID.
 
-:::note
+:::info
 ### Before you Begin
 Download and install the BlockID mobile application for your device: 
 
@@ -32,12 +33,13 @@ Follow the on-screen instructions to register your application with the BlockID 
 This guide provides the steps to implement UWL authentication within the login page of your organization's SPA.
 
 Before we begin, you will need some items from your **BlockID Developer Dashboard**:
-![image](../../static/img/uwl/uwlapi.png)
+
+![image](../static/img/uwl/uwlapi.png)
 
 We will need to copy our **API Key**, **Tenant Tag**, **Tenant URL**, and **Community Name** to our 
 SDK index file, so keep the above information handy. 
 
-:::note
+:::caution
 The following steps are written for the PHP-SDK version. The other SDKs will have a similar approach. Ensure you are hosting the PHP SDK on your infrastructure 
 :::
 
@@ -46,15 +48,7 @@ To get started, we need to delegate user authentication to the BlockID authentic
 
 
 <Tabs groupId="operating-systems">
-  <TabItem value="js" label="JavaScript">
-
-```jsx title=src/blockid.js 
-let bidSDK = {
-  api: "./index.php"
-}
-```
-</TabItem>
-  <TabItem value="php" label="PHP">
+  <TabItem value="php" label="PHP">  
 
 ```php title=src/blockid.php 
 require_once('../blockid.php');
@@ -62,13 +56,11 @@ require_once('../blockid.php');
 }
 ```
 </TabItem>
-  <TabItem value="node" label="NodeJS">
-
-```jsx title=src/blockid.js
-let bidSDK = {
-  api: "./index.php"
-}
-```
+  <TabItem value="js" label="JavaScript" className="gray-text">
+(Coming Soon)
+</TabItem>
+  <TabItem value="node" label="NodeJS" className="gray-text">
+(Coming Soon)
 </TabItem>
 </Tabs>
 
@@ -78,36 +70,20 @@ Next, we are going to edit the `index.php` file that we just defined as our API 
 
 
 <Tabs groupId="operating-systems">
-  <TabItem value="js" label="JavaScript">
-
-```jsx title=src/index.js 
-const blockId = new UWL({ api: 'https://[PHP_SDK_URL]/index.php' });
-
-blockId.createNewSession()
-  .then((resp) => {
-      // do something with the resp object
-  });
-```
-</TabItem>
  <TabItem value="php" label="PHP">
 
-```php title=src/index.php 
-$tenantTag = "<customer_tag>";
-$tenantURL = "https://<customer_name>.1kosmos.in";
-$communityName = "default";
-```
-</TabItem>
-<TabItem value="node" label="NodeJS">
-
-```jsx title=src/index.js
-const blockId = new UWL({ api: 'https://[PHP_SDK_URL]/index.php' });
-
-blockId.createNewSession()
-  .then((resp) => {
-      // do something with the resp object
-  });
-```
-</TabItem>
+ ```php title=src/index.php 
+ $tenantTag = "<customer_tag>";
+ $tenantURL = "https://<customer_name>.1kosmos.in";
+ $communityName = "default";
+ ```
+ </TabItem>
+ <TabItem value="js" label="JavaScript" className="gray-text">
+(Coming Soon)
+ </TabItem>
+ <TabItem value="node" label="NodeJS" className="gray-text">
+(Coming Soon)
+ </TabItem>
 </Tabs>
 
 ##  Editing Your Existing Application
@@ -155,11 +131,11 @@ In the main body of your application, add the following line:
 Once our Single Page Application (SPA) is configured for UWL, we can test its functionality by doing the following:
 
 1. Navigate to your application's login page, which we edited to include UWL. A QR code will be displayed:
-![signin](../../static/img/uwl/signin.png)
+![signin](../static/img/uwl/signin.png)
 
 2. On your mobile device, open the BlockID Application and select **Scan QR**:
 
-![scanqr](../../static/img/uwl/scanqr.png)
+![scanqr](../static/img/uwl/scanqr.png)
 
 3. Scan the QR code with your mobile device. When prompted, click the **green checkmark** to authenticate. The device will ask you to authenticate the request with biometric verification. 
 
@@ -204,4 +180,3 @@ This example contains dummy data
 [^1]:Physical presence is required for identity proofing. Identifying attributes must be verified by an authorized and trained representative of the CSP. As with IAL2, attributes can be asserted by CSPs to RPs in support of pseudonymous identity with verified attributes.
 
 [^2]:AAL3: Provides very high confidence that the claimant controls authenticator(s) bound to the subscriber’s account. Authentication at AAL3 is based on proof of possession of a key through a cryptographic protocol. AAL3 authentication SHALL use a hardware-based authenticator and an authenticator that provides verifier impersonation resistance; the same device MAY fulfill both these requirements. In order to authenticate at AAL3, claimants SHALL prove possession and control of two distinct authentication factors through secure authentication protocol(s). Approved cryptographic techniques are required.
-

@@ -8,7 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Developer Documentation',
   tagline: '1Kosmos BlockID Developer Portal',
-  url: 'https://cranky-wing-7e4cda.netlify.app',
+  url: 'localhost',
+  //url: 'https://cranky-wing-7e4cda.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -55,16 +56,16 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'uwl2',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Home',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
+          //{
+          //  href: 'https://github.com/facebook/docusaurus',
+          //  label: 'GitHub',
+          //  position: 'right',
+          //},
         ],
       },
       footer: {
@@ -82,10 +83,10 @@ const config = {
           {
             title: 'Community',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/1kosmos',
-              },
+              //{
+              //  label: 'Stack Overflow',
+             //   href: 'https://stackoverflow.com/questions/tagged/1kosmos',
+             // },
               {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/1kosmos',
@@ -110,7 +111,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} 1Kosmos, Inc. Built with Docusaurus.`,
       },
       prism: {
         additionalLanguages: ['php'],
